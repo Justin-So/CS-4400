@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Pending Data Point</title>
+      <title>Pending City Official</title>
       <link href="../assets/css/main.css" rel="stylesheet">
       <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">
       <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -10,15 +10,16 @@
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <h2>Pending data points</h2>
+               <h2>Pending City Officials</h2>
                <div class="table-responsive">
                   <table id="mytable" class="table table-bordred table-striped">
                      <thead>
                         <th></th>
-                        <th>POI location</th>
-                        <th>Data type</th>
-                        <th>Data value</th>
-                        <th>Time and date of data reading</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Title</th>
                      </thead>
                      <tbody>
                         <tr>
@@ -27,19 +28,23 @@
                            <td>Irshad</td>
                            <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
                            <td>isometric.mohsin@gmail.com</td>
+                           <td>Mayor</td>
                         </tr>
                      </tbody>
                   </table>
-                  <div class="clearfix"></div>
-                  <ul class="pagination pull-right">
-                     <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                     <li class="active"><a href="#">1</a></li>
-                     <li><a href="#">2</a></li>
-                     <li><a href="#">3</a></li>
-                     <li><a href="#">4</a></li>
-                     <li><a href="#">5</a></li>
-                     <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="row">
+               <div class="col-sm-6 col-sm-offset-3">
+                  <input type="button" name="accept" id="accept" tabindex="4" class="form-control btn btn-primary" value="Accept">
+                  <br>
+                  <br>
+                  <input type="button" name="reject" id="reject" tabindex="4" class="form-control btn btn-primary" value="Reject">
+                  <br>
+                  <br>
+                  <input type="button" name="cancel" id="cancel" tabindex="4" class="form-control btn btn-primary" value="Cancel">
                </div>
             </div>
          </div>

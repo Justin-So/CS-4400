@@ -32,7 +32,6 @@
                            </select>
                            <div class="form-group">
                               <br>
-                              <br>
                               <input type="text" name="zipCode" id="zipCode" tabindex="1" class="form-control" placeholder="ZipCode" value="">
                            </div>
                            <div class="form-group">
