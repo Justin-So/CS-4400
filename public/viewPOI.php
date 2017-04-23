@@ -33,6 +33,21 @@
        array_push($states, $row['State']);
      }
    }
+
+   if (isset($_POST)) {
+    $loc = $_POST['location'];
+    $cit = $_POST['city'];
+    $st = $_POST['state'];
+    $zip = $_POST['zipcode'];
+    $flagged = $_POST['flagged'];
+    $dateFrom = $_POST['dataReadingDatetimeFrom'];
+    $dateTo = $_POST['dataReadingDatetimeTo'];
+    echo $flagged;
+
+    $sql = "select * from POI where Location_Name = '$loc' and City = '$cit' and State = '$st' and Zip_Code = '$zip' and Flag = '$flagged' and Date_Flagged >= '$dateFrom' and Date_Flagged <= '$dateTo'";
+    echo $sql;
+
+   }
    
    mysqli_close($link);
    // print_r($citys);
@@ -89,13 +104,13 @@
                            <div class="form-group row">
                               <label class="col-2 col-form-label">Zip Code</label>
                               <div class="col-10">
-                                 <input type="text" class="form-control" name="dataValue">
+                                 <input type="text" class="form-control" name="zipcode">
                               </div>
                            </div>
                            <div class="form-group row">
                               <label class="col-2 col-form-label">Flagged</label>
                               <div class="col-10">
-                                 <input type="checkbox" name="dataValue" value="">
+                                 <input type="checkbox" name="flagged" value="">
                               </div>
                            </div>
                            <div class="form-group row">
