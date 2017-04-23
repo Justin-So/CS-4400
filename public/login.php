@@ -21,8 +21,8 @@ if($result = mysqli_query($link, $sql)) {
 }
 
 mysqli_close($link);
-print_r($citys);
-print_r($states);
+// print_r($citys);
+// print_r($states);
 
 ?>
 
