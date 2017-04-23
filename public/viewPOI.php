@@ -13,6 +13,7 @@
                <div class="panel-body">
                   <div class="row">
                      <div class="col-lg-12">
+                     <h1 class="center-text">View POIs </h1>
                         <form id="login-form" action="" method="post" role="form" style="display: block;">
                            <div class="form-group row">
                               <label class="col-2 col-form-label">POI Location Name</label>
@@ -109,8 +110,8 @@
                       </tr>
                    </tbody>
                 </table>
-                <a href="#" class="btn btn-primary">Back</a>
              </div>
+             <a class="form-control btn btn-primary" href="cityOfficialFunction.php">Back</a>
            </div>
          </div>
       </div>

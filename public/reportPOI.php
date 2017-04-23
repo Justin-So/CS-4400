@@ -48,7 +48,7 @@
          <div class="form-group">
             <div class="row">
                <div class="col-sm-6 col-sm-offset-3">
-                  <input type="button" name="back" id="back" tabindex="4" class="form-control btn btn-primary" value="Back">
+                  <a class="form-control btn btn-primary" href="cityOfficialFunction.php">Back</a>
                </div>
             </div>
          </div>

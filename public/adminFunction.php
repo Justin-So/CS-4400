@@ -18,13 +18,13 @@
                            <div class="form-group">
                               <div class="row">
                                  <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="button" name="pendingDataPoints" id="pendingDataPoints" tabindex="4" class="form-control btn btn-primary" value="Pending Data Points">
+                                 	<a class="form-control btn btn-primary" href="pendingDataPoint.php">Pending Data Points</a>
                                     <br>
                                     <br>
-                                    <input type="button" name="pendingCityOfficialAccounts" id="pendingCityOfficialAccounts" tabindex="4" class="form-control btn btn-primary" value="Pending City Official Accounts">
+                                    <a class="form-control btn btn-primary" href="pendingCityOfficial.php">Pending City Official</a>
                                     <br>
                                     <br>
-                                    <input type="button" name="logout" id="logout" tabindex="4" class="form-control btn btn-primary" value="Log Out">
+                                    <a class="form-control btn btn-primary" href="login.php">Logout</a>
                                  </div>
                               </div>
                            </div>

@@ -18,13 +18,13 @@
                            <div class="form-group">
                               <div class="row">
                                  <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="button" name="fiter-search-POI" id="fiter-search-POI" tabindex="4" class="form-control btn btn-primary" value="Filter/Search POI">
+                                    <a class="form-control btn btn-primary" href="viewPOI.php">Filter/Search POI</a>
                                     <br>
                                     <br>
-                                    <input type="button" name="POI-Report" id="POI-Report" tabindex="4" class="form-control btn btn-primary" value="POI Report">
+                                    <a class="form-control btn btn-primary" href="reportPOI.php">POI Report</a>
                                     <br>
                                     <br>
-                                    <input type="button" name="logout" id="logout" tabindex="4" class="form-control btn btn-primary" value="Log Out">
+                                    <a class="form-control btn btn-primary" href="Login.php">Logout</a>
                                  </div>
                               </div>
                            </div>
