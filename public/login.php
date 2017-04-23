@@ -1,6 +1,7 @@
 <?php
 
 $link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
+// $link = mysqli_connect("localhost", "root", "", "cs4400_74");
  
 // Check connection
 if($link === false){
@@ -54,7 +55,7 @@ mysqli_close($link);
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="" method="post" role="form" style="display: block;">
+								<form id="login-form" action="access.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>

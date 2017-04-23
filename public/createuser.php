@@ -1,31 +1,10 @@
-<!-- <?php
-
-// require_once 'connect.php';
-
-// $link = mysqli_connect("localhost", "root", "", "cs4400_74");
-
-// echo $_POST['username'];
-// echo $_POST['email'];
-// echo $_POST['password'];
-// echo $_POST['userType'];
-// $sql = "INSERT INTO user (email, username, password, usertype) VALUES ('peterparker@mail.com', peter, asdfasdf, Admin)";
-// if (mysqli_query($link, $sql)){
-// 	echo "Success";
-// } else{
-// 	echo "fail";
-// }
-
-// $mysqli->query('INSERT INTO User Values ('  + $_POST['email'] + ', ' + $_POST['username'] + ', ' + $_POST['password'] + ', ' + $_POST['usertype']);
-
-// $mysqli->close();
-
-?> -->
 
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 
 $link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
+// $link = mysqli_connect("localhost", "root", "", "cs4400_74");
  
 // Check connection
 if($link === false){
@@ -41,9 +20,9 @@ $city = $_POST['city'];
 $state = $_POST['state'];
 $title = $_POST['Title'];
 
-echo $title;
-echo $city;
-echo $state; 
+// echo $title;
+// echo $city;
+// echo $state; 
 
 if($usertype == "City Scientist"){
 	$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'City_Scientist')";
@@ -77,12 +56,15 @@ $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $admin = 'adminFunction.php';
 $official = 'cityOfficialFunction.php';
+$scientist = 'newDataPoint.php';
 
 if($usertype == "Admin") {
 	header("Location: http://$host$uri/$admin");
 } else if($usertype == "City Official"){
 	header("Location: http://$host$uri/$official");
-} 
+} else if($usertype == "City Scientist"){
+header("Location: http://$host$uri/$scientist");
+}
 
 
  
