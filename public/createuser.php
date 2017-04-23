@@ -72,7 +72,7 @@ if(mysqli_query($link, $sql)){
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $admin = 'adminFunction.php';
-$official = 'cityOfficialFunction.php'
+$official = 'cityOfficialFunction.php';
 
 if($usertype == "Admin") {
 	header("Location: http://$host$uri/$admin");
