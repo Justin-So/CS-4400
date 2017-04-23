@@ -11,7 +11,7 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-echo "hi";
+
 
 // $location = $_POST['location_name'];
 $timeDates = $_POST['selectedValue'];
@@ -31,7 +31,7 @@ foreach ($timeDates as $t) {
 	$sql .= "update data_point set Accepted = $accepted where DateTime = '$t'; ";
 }
 
-// echo $sql;
+echo $sql;
 // die();
 
 $host  = $_SERVER['HTTP_HOST'];
