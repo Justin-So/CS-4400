@@ -42,7 +42,10 @@
     $flagged = $_POST['flagged'];
     $dateFrom = $_POST['dataReadingDatetimeFrom'];
     $dateTo = $_POST['dataReadingDatetimeTo'];
-    echo $flagged;
+    // echo $flagged;
+    if ($flagged != "1") {
+      $flagged = "0";
+    }
 
     $sql = "select * from POI where Location_Name = '$loc' and City = '$cit' and State = '$st' and Zip_Code = '$zip' and Flag = '$flagged' and Date_Flagged >= '$dateFrom' and Date_Flagged <= '$dateTo'";
     echo $sql;
@@ -110,7 +113,7 @@
                            <div class="form-group row">
                               <label class="col-2 col-form-label">Flagged</label>
                               <div class="col-10">
-                                 <input type="checkbox" name="flagged" value="">
+                                 <input type="checkbox" name="flagged" value="1">
                               </div>
                            </div>
                            <div class="form-group row">
