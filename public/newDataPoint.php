@@ -60,7 +60,7 @@ mysqli_close($link);
                         } ?>
                     </select>
                   </div>
-                  <a class="form-control btn btn-primary" href="pendingCityOfficial.php">Add a New Location</a>
+                  <a class="form-control btn btn-primary" href="newPOI.php">Add a New Location</a>
                   <br>
                   <br>
 
@@ -92,7 +92,7 @@ mysqli_close($link);
                   <div class="form-group row">
                     <div class="col-sm-6">
                       <!-- <input id="backButton" class="form-control btn btn-primary" value="Back"> -->
-                      <a href="#" class="form-control btn btn-primary">Back</a>
+                      <a href="login.php" class="form-control btn btn-primary">Back</a>
 
                     </div>
                     <div class="col-sm-6">

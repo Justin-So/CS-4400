@@ -1,3 +1,42 @@
+<?php
+
+$link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
+// $link = mysqli_connect("localhost", "root", "", "cs4400_74");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = 'select DISTINCT CITY from CITYSTATE';
+$city = array();
+if($result = mysqli_query($link, $sql)) {
+  while ($row = mysqli_fetch_array($result)) 
+  {
+    // $citys = $row['City'];
+    array_push($city, $row['CITY']);
+    // $states = $row['State'];
+  }
+}
+
+$sql2 = 'select DISTINCT STATE from CITYSTATE';
+$state = array();
+if($result = mysqli_query($link, $sql2)) {
+  while ($row = mysqli_fetch_array($result)) 
+  {
+    // $citys = $row['City'];
+    array_push($state, $row['STATE']);
+    // $states = $row['State'];
+  }
+}
+
+
+mysqli_close($link);
+// print_r($citys);
+// print_r($states);
+
+?>
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -14,21 +53,21 @@
                   <div class="row">
                      <div class="col-lg-12">
                         <h1 class="center-text">Add a New Location </h1>
-                        <form id="login-form" action="" method="post" role="form" style="display: block;">
+                        <form id="login-form" action="createNewLocation.php" method="post" role="form" style="display: block;">
                            <div class="form-group">
                               <input type="text" name="locationName" id="locationName" tabindex="1" class="form-control" placeholder="POI Location Name" value="">
                            </div>
                            <label>City</label>
-                           <select class="form-control">
-                              <option >A</option >
-                              <option >B</option>
-                              <option >C</option >
+                           <select name="city" class="form-control">
+                              <?php foreach($city as $c) {
+                              echo '<option>' . $c . '</option>';
+                              } ?>
                            </select>
                            <label>State</label>
-                           <select class="form-control">
-                              <option >A</option >
-                              <option >B</option>
-                              <option >C</option >
+                           <select name="state" class="form-control">
+                              <?php foreach($state as $c) {
+                              echo '<option>' . $c . '</option>';
+                              } ?>
                            </select>
                            <div class="form-group">
                               <br>
@@ -37,10 +76,10 @@
                            <div class="form-group">
                               <div class="row">
                                  <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="button" name="back" id="back" tabindex="4" class="form-control btn btn-primary" value="Back">
+                                    <a class="form-control btn btn-primary" href="newDataPoint.php">Back</a>
                                     <br>
                                     <br>
-                                    <input type="button" name="submit" id="submit" tabindex="4" class="form-control btn btn-primary" value="Submit">
+                                    <input type="submit" name="submit" id="submit" tabindex="4" class="form-control btn btn-primary" value="Submit">
                                  </div>
                               </div>
                            </div>
