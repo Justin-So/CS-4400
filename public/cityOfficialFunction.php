@@ -24,7 +24,8 @@
                                     <a class="form-control btn btn-primary" href="reportPOI.php">POI Report</a>
                                     <br>
                                     <br>
-                                    <a class="form-control btn btn-primary" href="Login.php">Logout</a>
+                                    
+                                    <a class="form-control btn btn-primary" href="login.php">Logout</a>
                                  </div>
                               </div>
                            </div>

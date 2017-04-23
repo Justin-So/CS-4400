@@ -1,7 +1,7 @@
 <?php
 
-$link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
-// $link = mysqli_connect("localhost", "root", "", "cs4400_74");
+// $link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
+$link = mysqli_connect("localhost", "root", "", "cs4400_74");
  
 // Check connection
 if($link === false){
