@@ -11,7 +11,6 @@ $sql = 'select * from CITYSTATE';
 $citys = array();
 $states = array();
 if($result = mysqli_query($link, $sql)) {
-	print_r($result);
 	while ($row = mysqli_fetch_array($result)) 
 	{
 		// $citys = $row['City'];
@@ -22,7 +21,8 @@ if($result = mysqli_query($link, $sql)) {
 }
 
 mysqli_close($link);
-
+print_r($citys);
+print_r($states);
 
 ?>
 
