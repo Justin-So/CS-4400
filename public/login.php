@@ -7,10 +7,11 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$sql = 'select * from citystate';
+$sql = 'select * from CITYSTATE';
 $citys = array();
 $states = array();
 if($result = mysqli_query($link, $sql)) {
+	print_r($result);
 	while ($row = mysqli_fetch_array($result)) 
 	{
 		// $citys = $row['City'];
