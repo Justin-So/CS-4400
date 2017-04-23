@@ -1,3 +1,40 @@
+<?php
+
+$link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
+// $link = mysqli_connect("localhost", "root", "", "cs4400_74");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = 'select * from POI';
+$location_name = array();
+if($result = mysqli_query($link, $sql)) {
+  while ($row = mysqli_fetch_array($result)) 
+  {
+    // $citys = $row['City'];
+    array_push($location_name, $row['Location_Name']);
+    // $states = $row['State'];
+  }
+}
+
+
+$type = 'select * from data_point';
+$data_type = array();
+if($result = mysqli_query($link, $type)) {
+  while ($row = mysqli_fetch_array($result)) 
+  {
+    array_push($data_type, $row['Type']);
+  }
+}
+
+mysqli_close($link);
+// print_r($citys);
+// print_r($states);
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,14 +50,19 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <form id="login-form" action="" method="post" role="form" style="display: block;">
+                <form id="login-form" action="submitDataPoint.php" method="post" role="form" style="display: block;">
 
                   <div class="form-group row">
-                    <label class="col-2 col-form-label">POI Location Name</label>
-                    <div class="col-10">
-                      <input type="text" class="form-control" placeholder="Username">
-                    </div>
+                    <label>Location Name</label>
+                    <select name="location_name" class="form-control">
+                      <?php foreach($location_name as $c) {
+                        echo '<option>' . $c . '</option>';
+                        } ?>
+                    </select>
                   </div>
+                  <a class="form-control btn btn-primary" href="pendingCityOfficial.php">Add a New Location</a>
+                  <br>
+                  <br>
 
                   <div class="form-group row">
                     <label class="col-2 col-form-label">Time and date of data reading</label>
@@ -32,11 +74,11 @@
                   <div class="form-group row">
                     <label class="col-2 col-form-label">Data type</label>
                     <div class="col-10">
-                      <select class="form-control">
-                        <option >A</option>
-                        <option >B</option>
-                        <option >C</option>
-                      </select>
+                      <select name="type" class="form-control">
+                      <?php foreach($data_type as $c) {
+                        echo '<option>' . $c . '</option>';
+                        } ?>
+                    </select>
                     </div>
                   </div>
 

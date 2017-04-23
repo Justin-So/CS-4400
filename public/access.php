@@ -2,7 +2,7 @@
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 
-$link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
+$link = mysqli_connect("localho	st", "cs4400_74", "e_zTUL5w", "cs4400_74");
 // $link = mysqli_connect("localhost", "root", "", "cs4400_74");
  
 // Check connection
