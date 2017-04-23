@@ -20,7 +20,7 @@ if($result = mysqli_query($link, $sql)) {
 }
 
 
-$type = 'select * from DATA_POINT';
+$type = 'select DISTINCT TYPE from DATA_POINT';
 $data_type = array();
 if($result = mysqli_query($link, $type)) {
   while ($row = mysqli_fetch_array($result)) 
