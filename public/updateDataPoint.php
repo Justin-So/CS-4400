@@ -12,24 +12,40 @@ if($link === false){
 }
  
 
-$location = $_POST['location_name'];
-$timeDate = $_POST['dataReadingDatetime'];
-$type = $_POST['type'];
-$value = $_POST['dataValue'];
+// $location = $_POST['location_name'];
+$timeDates = $_POST['selectedValue'];
+$accepted = "";
 
-$sql = "INSERT INTO DATA_POINT VALUES ('$timeDate', '$value', null, '$location', '$type')";
+if ($_POST['accept'] == "accept") {
+	$accepted = "1";
+} else if ($_POST['reject'] == "reject") {
+	$accepted = "0";
+} else {
+	$accepted = "null";
+}
 
-echo $location;
-echo "string"; $timeDate;
-echo $type;
-echo $value;
+$sql = "";
+
+foreach ($timeDates as $t) {
+	$sql .= "update data_point set Accepted = $accepted where DateTime = '$t'; ";
+}
 
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$scientist = 'newDataPoint.php';
+$scientist = 'pendingDataPoint.php';
 if(mysqli_query($link, $sql)){
 	    header("Location: http://$host$uri/$scientist");
 	}
+
+// $sql = "INSERT INTO DATA_POINT VALUES ('$timeDate', '$value', null, '$location', '$type')";
+
+
+// $host  = $_SERVER['HTTP_HOST'];
+// $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+// $scientist = 'newDataPoint.php';
+// if(mysqli_query($link, $sql)){
+// 	    header("Location: http://$host$uri/$scientist");
+// 	}
 
 
 
