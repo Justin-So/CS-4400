@@ -28,7 +28,7 @@ if (isset($_POST['accept']) && $_POST['accept'] == "accept") {
 $sql = "";
 
 foreach ($timeDates as $t) {
-	$sql .= "update data_point set Accepted = $accepted where DateTime = '$t'; ";
+	$sql .= "update DATA_POINT set Accepted = $accepted where DateTime = '$t'; ";
 }
 
 echo $sql;

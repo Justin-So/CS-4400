@@ -26,7 +26,7 @@ if (isset($_POST['accept']) && $_POST['accept'] == "accept") {
 $sql = "";
 
 foreach ($usernames as $u) {
-	$sql .= "update city_official set Approved = $accepted where Username = '$u'; ";
+	$sql .= "update CITY_OFFICIAL set Approved = $accepted where Username = '$u'; ";
 }
 // echo $sql;
 // die();
