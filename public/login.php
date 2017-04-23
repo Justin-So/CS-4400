@@ -1,3 +1,30 @@
+<?php
+
+$link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = 'select * from citystate';
+$citys = array();
+$states = array();
+if($result = mysqli_query($link, $sql)) {
+	while ($row = mysqli_fetch_array($result)) 
+	{
+		// $citys = $row['City'];
+		array_push($citys, $row['City']);
+		// $states = $row['State'];
+		array_push($states, $row['State']);
+	}
+}
+
+mysqli_close($link);
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -64,17 +91,17 @@
 									<div id="additional-info" class="form-group">
 										<label>City</label>
 										<select name="city" class="form-control">
-											 <option >A</option >
-											 <option >B</option>
-											 <option >C</option >
+											<?php foreach($citys as $c) {
+												echo '<option>' . $c . '</option>';
+												} ?>
 										</select>
 
 										<br>
 										<label>State</label>
 										<select name="state" class="form-control">
-											 <option >A</option >
-											 <option >B</option>
-											 <option >C</option >
+											 <?php foreach($states as $s) {
+												echo '<option>' . $s . '</option>';
+												} ?>
 										</select>
 										<br>
 										<input type="text" name="Title" id="title" class="form-control" placeholder="Title" value="">
