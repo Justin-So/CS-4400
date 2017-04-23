@@ -123,10 +123,10 @@
                            </div>
                            <div class="form-group row">
                               <div class="col-sm-6">
-                                 <a href="#" class="form-control btn btn-primary">Apply Filter</a>
+                                 <input type="submit" name="apply" id="apply" tabindex="4" class="form-control btn btn-primary" value="Apply Filter">
                               </div>
                               <div class="col-sm-6">
-                                 <a href="#" class="form-control btn btn-primary">Reset Filter</a>
+                                 <input type="submit" name="reset" id="reset" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
                               </div>
                            </div>
                         </form>
