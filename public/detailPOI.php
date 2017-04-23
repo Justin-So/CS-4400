@@ -79,7 +79,7 @@
                   </div>
                   <div class="form-group row">
                               <div class="col-sm-6">
-                                 <a href="#" class="form-control btn btn-primary">Back</a>
+                                <a class="form-control btn btn-primary" href="viewPOI.php">Back</a>
                               </div>
                               <div class="col-sm-6">
                                  <a href="#" class="form-control btn btn-primary">Flag</a>

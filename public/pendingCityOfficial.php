@@ -44,7 +44,7 @@
                   <input type="button" name="reject" id="reject" tabindex="4" class="form-control btn btn-primary" value="Reject">
                   <br>
                   <br>
-                  <a class="form-control btn btn-primary" href="adminFunction.php">Cancel</a>
+                  <a class="form-control btn btn-primary" href="adminFunction.php">Back</a>
                </div>
             </div>
          </div>

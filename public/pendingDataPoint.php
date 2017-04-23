@@ -1,3 +1,51 @@
+<?php
+
+require_once 'connect.php';
+// $link = mysqli_connect("localhost", "cs4400_74", "e_zTUL5w", "cs4400_74");
+// // $link = mysqli_connect("localhost", "root", "", "cs4400_74");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = 'select * from DATA_POINT where Accepted is NULL';
+$dataPoints = array();
+// $location = array();
+// $type = array();
+// $value = array();
+// $timeDate = array();
+
+if($result = mysqli_query($link, $sql)) {
+   while ($row = mysqli_fetch_array($result)) 
+   {
+      $dataPoint = array();
+      $dataPoint['location'] = $row['Location_Name'];
+      $dataPoint['type'] = $row['Type'];
+      $dataPoint['value'] = $row['DataValue'];
+      $dataPoint['time'] = $row['DateTime'];
+
+      array_push($dataPoints, $dataPoint);
+
+      // array_push($location, $row['Location_Name']);
+      // array_push($type, $row['Type']);
+      // array_push($value, $row['DataValue']);
+      // array_push($timeDate, $row['DateTime']);
+   }
+}
+
+
+// print_r($location);
+// print_r($type);
+// print_r($value);
+// print_r($timeDate);
+
+mysqli_close($link);
+// print_r($citys);
+// print_r($states);
+
+?>
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -21,13 +69,15 @@
                         <th>Time and date of data reading</th>
                      </thead>
                      <tbody>
+                     <?php foreach($dataPoints as $dp) { ?>
                         <tr>
-                           <td><input type="checkbox" class="checkthis" /></td>
-                           <td>Mohsin</td>
-                           <td>Irshad</td>
-                           <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                           <td>isometric.mohsin@gmail.com</td>
+                           <td><input name="accept" value="<?php echo $dp['time']; ?>" type="checkbox" class="checkthis" /></td>
+                           <td><?php echo $dp['location']; ?></td>
+                           <td><?php echo $dp['type']; ?></td>
+                           <td><?php echo $dp['value']; ?></td>
+                           <td><?php echo $dp['time']; ?></td>
                         </tr>
+                        <?php } ?>
                      </tbody>
                   </table>
                </div>
@@ -36,13 +86,13 @@
          <div class="form-group">
             <div class="row">
                <div class="col-sm-6 col-sm-offset-3">
-                  <input type="button" name="accept" id="accept" tabindex="4" class="form-control btn btn-primary" value="Accept">
+                  <input type="submit" name="accept" id="accept" tabindex="4" class="form-control btn btn-primary" value="Accept">
                   <br>
                   <br>
-                  <input type="button" name="reject" id="reject" tabindex="4" class="form-control btn btn-primary" value="Reject">
+                  <input type="submit" name="reject" id="reject" tabindex="4" class="form-control btn btn-primary" value="Reject">
                   <br>
                   <br>
-                  <a class="form-control btn btn-primary" href="adminFunction.php">Cancel</a>
+                  <a class="form-control btn btn-primary" href="adminFunction.php">Back</a>
                </div>
             </div>
          </div>
