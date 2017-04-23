@@ -55,7 +55,7 @@ if($usertype == "Admin"){
 
 if($usertype == "City Official"){
 	$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'CITY_OFFICIAL')";
- 	$sql = "INSERT INTO CITY_OFFICIAL VALUES ('$username', '$title', '', '$city', '$state')";
+ 	$sql2 = "INSERT INTO CITY_OFFICIAL VALUES ('$username', '$title', null, '$city', '$state')";
 	Echo "Fuck";
 }
 // Attempt insert query execution
@@ -63,11 +63,15 @@ if($usertype == "City Official"){
 
 
 if(mysqli_query($link, $sql)){
-	echo $usertype;
-    echo "Records inserted successfully.";
+	// echo $usertype;
+ //    echo "Records inserted successfully.";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
+if (isset($sql2)) {
+	mysqli_query($link, $sql2);
+}
+
 
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
