@@ -25,7 +25,7 @@ $data_type = array();
 if($result = mysqli_query($link, $type)) {
   while ($row = mysqli_fetch_array($result)) 
   {
-    array_push($data_type, $row['Type']);
+    array_push($data_type, $row['TYPE']);
   }
 }
 
