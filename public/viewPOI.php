@@ -8,15 +8,28 @@
        die("ERROR: Could not connect. " . mysqli_connect_error());
    }
    
-   $sql = 'select * from POI';
+   $sqllocation = 'select DISTINCT Location_Name from POI';
+   $sqlcity = 'select DISTINCT City from POI';
+   $sqlstate = 'select DISTINCT State from POI';
+
    $location = array();
    $citys = array();
    $states = array();
-   if($result = mysqli_query($link, $sql)) {
+   if($result = mysqli_query($link, $sqllocation)) {
      while ($row = mysqli_fetch_array($result)) 
      {
        array_push($location, $row['Location_Name']);
+     }
+   }
+   if($result = mysqli_query($link, $sqlcity)) {
+     while ($row = mysqli_fetch_array($result)) 
+     {
        array_push($citys, $row['City']);
+     }
+   }
+   if($result = mysqli_query($link, $sqlstate)) {
+     while ($row = mysqli_fetch_array($result)) 
+     {
        array_push($states, $row['State']);
      }
    }
