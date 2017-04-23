@@ -15,6 +15,7 @@
    $location = array();
    $citys = array();
    $states = array();
+   $pois = array();
    if($result = mysqli_query($link, $sqllocation)) {
      while ($row = mysqli_fetch_array($result)) 
      {
@@ -48,9 +49,22 @@
     }
 
     $sql = "select * from POI where Location_Name = '$loc' and City = '$cit' and State = '$st' and Zip_Code = '$zip' and Flag = $flagged and Date_Flagged >= '$dateFrom' and Date_Flagged <= '$dateTo'";
-    echo $sql;
 
+    if($result = mysqli_query($link, $sql)) {
+     while ($row = mysqli_fetch_array($result)) 
+     {
+      $poi = array();
+      $poi['location'] = $result['Location_Name'];
+      $poi['state'] = $result['State'];
+      $poi['city'] = $result['City'];
+      $poi['zip'] = $result['Zip_Code'];
+      $poi['flag'] = $result['Flag'];
+      $poi['dateFlagged'] = $result['Date_Flagged'];
+      
+       array_push($pois, $poi);
+     }
    }
+  }
    
    mysqli_close($link);
    // print_r($citys);
@@ -152,14 +166,22 @@
                         <th>Date Flagged</th>
                      </thead>
                      <tbody>
+                     <?php
+                     if ($pois.count == 0) {
+                      echo "no data";
+                     } else {
+                      foreach($pois as $p) {
+                       ?>
                         <tr>
-                           <td>Blah balh</td>
-                           <td>Mohsin</td>
-                           <td>Irshad</td>
-                           <td>30024</td>
-                           <td>isometric.mohsin@gmail.com</td>
-                           <td>isometric.mohsin@gmail.com</td>
+                           <td><?php echo $p['location']; ?></td>
+                           <td><?php echo $p['city']; ?></td>
+                           <td><?php echo $p['state']; ?></td>
+                           <td><?php echo $p['zip']; ?></td>
+                           <td><?php echo $p['flag']; ?></td>
+                           <td><?php echo $p['dateFlagged']; ?></td>
                         </tr>
+                      <?php }
+                      } ?>
                      </tbody>
                   </table>
                </div>
