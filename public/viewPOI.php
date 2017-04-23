@@ -34,19 +34,28 @@
        array_push($states, $row['State']);
      }
    }
-
-   if (isset($_POST)) {
+// echo '<pre>';
+// print_r($_POST);
+   if (!empty($_POST)) {
     $loc = $_POST['location'];
     $cit = $_POST['city'];
     $st = $_POST['state'];
     $zip = $_POST['zipcode'];
-    $flagged = $_POST['flagged'];
+    $flagged = isset($_POST['flagged']) ? $_POST['flagged'] : "0";
+    // if (array_key_exists('flagged', $_POST)) {
+    //   echo 'hh';
+    //   $flagged = "1";
+    // } else {
+    //   echo 'gg';
+    //   $flagged = "0";
+    // }
+    // echo $flagged;
     $dateFrom = $_POST['dataReadingDatetimeFrom'];
     $dateTo = $_POST['dataReadingDatetimeTo'];
     // echo $flagged;
-    if ($flagged != "1") {
-      $flagged = "0";
-    }
+    // if ($flagged != "1") {
+    //   $flagged = "0";
+    // }
 
     $sql = "select * from POI where Location_Name = '$loc' and City = '$cit' and State = '$st' and Zip_Code = '$zip' and Flag = $flagged and Date_Flagged >= '$dateFrom' and Date_Flagged <= '$dateTo'";
 
@@ -54,12 +63,12 @@
      while ($row = mysqli_fetch_array($result)) 
      {
       $poi = array();
-      $poi['location'] = $result['Location_Name'];
-      $poi['state'] = $result['State'];
-      $poi['city'] = $result['City'];
-      $poi['zip'] = $result['Zip_Code'];
-      $poi['flag'] = $result['Flag'];
-      $poi['dateFlagged'] = $result['Date_Flagged'];
+      $poi['location'] = $row['Location_Name'];
+      $poi['state'] = $row['State'];
+      $poi['city'] = $row['City'];
+      $poi['zip'] = $row['Zip_Code'];
+      $poi['flag'] = $row['Flag'];
+      $poi['dateFlagged'] = $row['Date_Flagged'];
       
        array_push($pois, $poi);
      }
@@ -167,7 +176,7 @@
                      </thead>
                      <tbody>
                      <?php
-                     if ($pois.count == 0) {
+                     if (empty($pois)) {
                       echo "no data";
                      } else {
                       foreach($pois as $p) {
