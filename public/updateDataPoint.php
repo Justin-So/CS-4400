@@ -41,7 +41,7 @@ if(mysqli_multi_query($link, $sql)){
 	mysqli_close($link);
 	header("Location: http://$host$uri/$scientist");
 } else {
-	echo "fail";
+	echo("Error description: " . mysqli_error($link));
 }
 
 // $sql = "INSERT INTO DATA_POINT VALUES ('$timeDate', '$value', null, '$location', '$type')";
