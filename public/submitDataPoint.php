@@ -20,23 +20,14 @@ $value = $_POST['dataValue'];
 
 $sql = "INSERT INTO DATA_POINT VALUES ('$timeDate', '$value', null, '$location', '$type')";
 
-echo $location;
-echo "string"; $timeDate;
-echo $type;
-echo $value;
-
-
-
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $scientist = 'newDataPoint.php';
 if(mysqli_query($link, $sql)){
-		echo "Success";
-		die()
+		
 	    header("Location: http://$host$uri/$scientist");
 	} else {
 		echo "Unsucessful";
-		die();
 	}
 
 
