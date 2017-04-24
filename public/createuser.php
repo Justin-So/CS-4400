@@ -27,8 +27,6 @@ if($password == $confirmpassword){
 	if($usertype == "City Scientist"){
 		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'City_Scientist')";
 	}
-	print_r($sql);
-	die();
 
 	if($usertype == "City Official"){
 		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'CITY_OFFICIAL')";
@@ -43,6 +41,8 @@ if($password == $confirmpassword){
 		// if (isset($sql2)) {
 		// 	mysqli_query($link, $sql2);
 		// }
+		echo "Success";
+		die();
 	} else{
 	    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 	}
