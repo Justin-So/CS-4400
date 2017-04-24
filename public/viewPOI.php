@@ -37,10 +37,29 @@
 // echo '<pre>';
 // print_r($_POST);
    if (!empty($_POST)) {
-    $loc = $_POST['location'];
-    $cit = $_POST['city'];
-    $st = $_POST['state'];
-    $zip = $_POST['zipcode'];
+    if(!isset($_POST['location'])) {
+      $loc = *;
+    } else {
+      $loc = $_POST['location'];      
+    }
+
+    if(!isset($_POST['city'])) {
+      $cit = *;
+    } else {
+      $loc = *;      
+    }
+
+    if(!isset($_POST['state'])) {
+      $st = *;
+    } else {
+      $loc = *;      
+    }
+
+    if(!isset($_POST['zipcode'])) {
+      $zip = *;
+    } else {
+      $zip = *;      
+    }
     $flagged = isset($_POST['flagged']) ? $_POST['flagged'] : "0";
     // if (array_key_exists('flagged', $_POST)) {
     //   echo 'hh';
