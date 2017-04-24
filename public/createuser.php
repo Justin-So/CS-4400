@@ -34,18 +34,6 @@ if($password == $confirmpassword){
 	}
 
 	if(mysqli_query($link, $sql)){
-		// if (isset($sql2)) {
-		// 	mysqli_query($link, $sql2);
-		// }
-		echo "Success";
-		die();
-	} else{
-	    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-	    die();
-	}
-	
-
-
 	$host  = $_SERVER['HTTP_HOST'];
 	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 	$admin = 'adminFunction.php';
@@ -59,6 +47,14 @@ if($password == $confirmpassword){
 	} else if($usertype == "City Scientist"){
 	header("Location: http://$host$uri/$scientist");
 	}
+	} else{
+	    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+	    die();
+	}
+	
+
+
+	
 } else {
 	echo "Password do not match";
 }
