@@ -42,6 +42,19 @@
     $st = $_POST['state'];
     $zip = $_POST['zipcode'];
     $flagged = isset($_POST['flagged']) ? $_POST['flagged'] : "0";
+
+    if(empty($loc)) {
+      $loc = *;
+    }
+    if(empty($cit)){
+      $cit = *;
+    }
+    if(empty($st)){
+      $st = *;
+    }
+    if(empty(zip)){
+      $zip = *;
+    }
     // if (array_key_exists('flagged', $_POST)) {
     //   echo 'hh';
     //   $flagged = "1";
