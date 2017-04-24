@@ -85,7 +85,6 @@ mysqli_close($link);
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
 									</div>
 									<select name="userType" id="user-types" class="form-control">
-										 <option >Admin</option>
 										 <option >City Scientist</option>
 										 <option >City Official</option >
 									</select>

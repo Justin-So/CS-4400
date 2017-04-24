@@ -42,14 +42,13 @@ if($password == $confirmpassword){
 
 
 	if(mysqli_query($link, $sql)){
-		// echo $usertype;
-	 //    echo "Records inserted successfully.";
+		if (isset($sql2)) {
+		mysqli_query($link, $sql2);
+		}
 	} else{
 	    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 	}
-	if (isset($sql2)) {
-		mysqli_query($link, $sql2);
-	}
+	
 
 
 	$host  = $_SERVER['HTTP_HOST'];
