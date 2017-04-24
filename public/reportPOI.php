@@ -1,3 +1,40 @@
+<?php
+
+require_once 'connect.php';
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = 'select * from POI';
+$dataPoints = array();
+
+if($result = mysqli_query($link, $sql)) {
+   while ($row = mysqli_fetch_array($result)) 
+   {
+      $dataPoint = array();
+      $dataPoint['location'] = $row['Location_Name'];
+      $dataPoint['flagged'] = $row['Flag'];
+      $dataPoint['city'] = $row['City'];
+      $dataPoint['state'] = $row['State'];
+
+      array_push($dataPoints, $dataPoint);
+   }
+}
+
+print_r($dataPoints);
+// print_r($location);
+// print_r($type);
+// print_r($value);
+// print_r($timeDate);
+
+mysqli_close($link);
+// print_r($citys);
+// print_r($states);
+
+?>
+
 <!DOCTYPE html>
 <html>
    <head>

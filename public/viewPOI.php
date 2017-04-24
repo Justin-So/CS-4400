@@ -166,9 +166,11 @@
          <hr>
          <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
+            <form id="login-form" action="detailPOI.php" method="post" role="form" style="display: block;">
                <div class="table-responsive">
                   <table id="mytable" class="table table-bordred table-striped">
                      <thead>
+                        <th></th>
                         <th>Location name</th>
                         <th>City</th>
                         <th>State</th>
@@ -179,11 +181,12 @@
                      <tbody>
                      <?php
                      if (empty($pois)) {
-                      echo "no data";
+                      // echo "no data";
                      } else {
                       foreach($pois as $p) {
                        ?>
                         <tr>
+                            <td><input name="selectedValue[]" value="<?php echo $p['location']; ?>" type="checkbox" class="checkthis" /></td>
                            <td><?php echo $p['location']; ?></td>
                            <td><?php echo $p['city']; ?></td>
                            <td><?php echo $p['state']; ?></td>
@@ -196,7 +199,11 @@
                      </tbody>
                   </table>
                </div>
+               <input type="submit" name="apply" id="apply" tabindex="4" class="form-control btn btn-primary" value="View Details">
+               <br>
+               <br>
                <a class="form-control btn btn-primary" href="cityOfficialFunction.php">Back</a>
+               </form>
             </div>
          </div>
       </div>

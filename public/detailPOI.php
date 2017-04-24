@@ -8,62 +8,44 @@
        die("ERROR: Could not connect. " . mysqli_connect_error());
    }
    
-   
-   
+
    $type = 'select DISTINCT TYPE from DATA_POINT';
    $data_type = array();
    if($result = mysqli_query($link, $type)) {
-   while ($row = mysqli_fetch_array($result)) 
+      while ($row = mysqli_fetch_array($result)) 
       {
-    array_push($data_type, $row['TYPE']);
+       array_push($data_type, $row['TYPE']);
       }
-      }
-   // echo '<pre>';
-   // print_r($_POST);
-   if (!empty($_POST)) {
-    $loc = $_POST['location'];
-    $cit = $_POST['city'];
-    $st = $_POST['state'];
-    $zip = $_POST['zipcode'];
-    $flagged = isset($_POST['flagged']) ? $_POST['flagged'] : "0";
-    // if (array_key_exists('flagged', $_POST)) {
-    //   echo 'hh';
-    //   $flagged = "1";
-    // } else {
-    //   echo 'gg';
-    //   $flagged = "0";
-    // }
-    // echo $flagged;
-    $dateFrom = $_POST['dataReadingDatetimeFrom'];
-    $dateTo = $_POST['dataReadingDatetimeTo'];
-    // echo $flagged;
-    // if ($flagged != "1") {
-    //   $flagged = "0";
-    // }
-   
-    $sql = "select * from POI where Location_Name = '$loc' and City = '$cit' and State = '$st' and Zip_Code = '$zip' and Flag = $flagged and Date_Flagged >= '$dateFrom' and Date_Flagged <= '$dateTo'";
-    // echo $sql;
-    if($result = mysqli_query($link, $sql)) {
-     while ($row = mysqli_fetch_array($result)) 
-     {
-      $poi = array();
-      $poi['location'] = $row['Location_Name'];
-      $poi['state'] = $row['State'];
-      $poi['city'] = $row['City'];
-      $poi['zip'] = $row['Zip_Code'];
-      $poi['flag'] = $row['Flag'];
-      $poi['dateFlagged'] = $row['Date_Flagged'];
-      
-       array_push($pois, $poi);
-     }
-   
    }
+
+   $datas = array();
+
+   if (!empty($_POST)) {
+       $type = $_POST['type'];
+       $minData = (int)$_POST['minData'];
+       $maxData = (int)$_POST['maxData'];
+       $dateFrom = $_POST['dataReadingDatetimeFrom'];
+       $dateTo = $_POST['dataReadingDatetimeTo'];
+      
+       $sql = "select DateTime, DataValue, Type, Location_Name from DATA_POINT where Type='$type' and DataValue >= $minData and DataValue <= $maxData and DateTime >= '$dateFrom' and DateTime <= '$dateTo' ORDER BY DateTime";
+       // echo $sql;
+
+      if($result = mysqli_query($link, $sql)) {
+        while ($row = mysqli_fetch_array($result)) 
+        {
+         $data = array();
+         $data['Type'] = $row['Type'];
+         $data['DataValue'] = $row['DataValue'];
+         $data['DateTime'] = $row['DateTime'];
+         $data['location'] = $row['Location_Name'];
+         
+          array_push($datas, $data);
+        }
+      }
    
    }
    
    mysqli_close($link);
-   // print_r($citys);
-   // print_r($states);
    
    ?>
 <!DOCTYPE html>
@@ -112,41 +94,49 @@
                            </div>
                            <div class="form-group row">
                               <div class="col-sm-6">
-                                 <a href="#" class="form-control btn btn-primary">Apply Filter</a>
+                                 <input type="submit" name="apply" id="apply" tabindex="4" class="form-control btn btn-primary" value="Apply Filter">
                               </div>
                               <div class="col-sm-6">
-                                 <a href="#" class="form-control btn btn-primary">Reset Filter</a>
+                                 <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
                               </div>
                            </div>
                         </form>
                         <hr>
-                        <div class="table-responsive">
+                        <form action="flag.php" method="post" role="form">
+                           <div class="table-responsive">
                            <table id="mytable" class="table table-bordred table-striped">
                               <thead>
+                                 <th></th>
                                  <th>Data type</th>
                                  <th>Data value</th>
                                  <th>Time and date of data reading</th>
                               </thead>
                               <tbody>
+                              <?php foreach($datas as $d) { ?>
                                  <tr>
-                                    <td>Mohsin</td>
-                                    <td>Irshad</td>
-                                    <td>isometric.mohsin@gmail.com</td>
+                                    <td><input name="selectedValue[]" value="<?php echo $d['location']; ?>" type="checkbox" class="checkthis" /></td>
+                                    <td><?php echo $d['Type']; ?></td>
+                                    <td><?php echo $d['DataValue'] ?></td>
+                                    <td><?php echo $d['DateTime'] ?></td>
                                  </tr>
+                              <?php } ?>
                               </tbody>
                            </table>
                            <div class="clearfix"></div>
                         </div>
+                        <div class="form-group row">
+                           <div class="col-sm-6">
+                              <a class="form-control btn btn-primary" href="viewPOI.php">Back</a>
+                           </div>
+                           <div class="col-sm-6">
+                              <input type="submit" name="flag" id="flag" tabindex="4" class="form-control btn btn-primary" value="flag">
+                           </div>
+                        </div>
+                        </form>
+                        
                      </div>
                   </div>
-                  <div class="form-group row">
-                     <div class="col-sm-6">
-                        <a class="form-control btn btn-primary" href="viewPOI.php">Back</a>
-                     </div>
-                     <div class="col-sm-6">
-                        <a href="#" class="form-control btn btn-primary">Flag</a>
-                     </div>
-                  </div>
+                  
                </div>
             </div>
          </div>
