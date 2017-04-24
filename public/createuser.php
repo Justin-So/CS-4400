@@ -52,7 +52,7 @@ if($password == $confirmpassword){
             }
             } else{
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-                die();
+                <a class="form-control btn btn-primary" href="login.php">Back</a>
             }
         
     } else {
