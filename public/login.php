@@ -10,7 +10,7 @@ if($link === false){
 }
 
 $sql = 'select DISTINCT City from CITYSTATE';
-$sql2 = 'select DISTINCT City from CITYSTATE';
+$sql2 = 'select DISTINCT State from CITYSTATE';
 $citys = array();
 $states = array();
 if($result = mysqli_query($link, $sql)) {
