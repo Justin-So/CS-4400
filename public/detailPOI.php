@@ -28,7 +28,7 @@
        $dateTo = $_POST['dataReadingDatetimeTo'];
       
        $sql = "select DateTime, DataValue, Type, Location_Name from DATA_POINT where Type='$type' and DataValue >= $minData and DataValue <= $maxData and DateTime >= '$dateFrom' and DateTime <= '$dateTo' ORDER BY DateTime";
-       echo $sql;
+       // echo $sql;
 
       if($result = mysqli_query($link, $sql)) {
         while ($row = mysqli_fetch_array($result)) 
@@ -38,7 +38,6 @@
          $data['DataValue'] = $row['DataValue'];
          $data['DateTime'] = $row['DateTime'];
          $data['location'] = $row['Location_Name'];
-         echo "hi";
           array_push($datas, $data);
         }
       }
