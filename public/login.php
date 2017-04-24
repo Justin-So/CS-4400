@@ -30,13 +30,6 @@ if($result = mysqli_query($link, $sql2)) {
 	}
 }
 
-
-
-
-
-print_r($states);
-die();
-
 mysqli_close($link);
 // print_r($citys);
 // print_r($states);
