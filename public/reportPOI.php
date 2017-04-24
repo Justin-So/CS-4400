@@ -23,8 +23,8 @@ if($result = mysqli_query($link, $sql)) {
       $dataPoint['aavg'] = $row['aavg'];
       $dataPoint['mmin'] = $row['mmin'];
       $dataPoint['mmax'] = $row['mmax'];
-      $dataPoint['mavg'] = $row['mmavg'];
-      $dataPoint['count'] = $row['COUNT(*)'];
+      $dataPoint['mavg'] = $row['mavg'];
+      $dataPoint['count'] = $row['Data_Count'];
 
 
       array_push($dataPoints, $dataPoint);
