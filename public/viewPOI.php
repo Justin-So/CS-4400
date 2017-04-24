@@ -39,25 +39,25 @@
    if (!empty($_POST)) {
     if(!isset($_POST['location'])) {
       $loc = *;
-    } else {
+    } else (isset($_POST['location']){
       $loc = $_POST['location'];      
     }
 
     if(!isset($_POST['city'])) {
       $cit = *;
-    } else {
+    } else (isset($_POST['city']){
       $loc = *;      
     }
 
     if(!isset($_POST['state'])) {
       $st = *;
-    } else {
+    } else if(isset($_POST['state']) {
       $loc = *;      
     }
 
     if(!isset($_POST['zipcode'])) {
       $zip = *;
-    } else {
+    } else (isset($_POST['zipcode']){
       $zip = *;      
     }
     $flagged = isset($_POST['flagged']) ? $_POST['flagged'] : "0";
