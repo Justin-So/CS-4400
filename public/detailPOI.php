@@ -38,13 +38,13 @@
          $data['DataValue'] = $row['DataValue'];
          $data['DateTime'] = $row['DateTime'];
          $data['location'] = $row['Location_Name'];
-         
+         echo "hi";
           array_push($datas, $data);
         }
       }
    
    }
-   print_r($datas);
+   
    mysqli_close($link);
    
    ?>
