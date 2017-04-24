@@ -27,6 +27,7 @@ if($password == $confirmpassword){
 	if($usertype == "City Scientist"){
 		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'City_Scientist')";
 	}
+	print_r($sql);
 
 	if($usertype == "City Official"){
 		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'CITY_OFFICIAL')";
