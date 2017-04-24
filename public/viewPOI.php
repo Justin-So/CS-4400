@@ -34,8 +34,8 @@
        array_push($states, $row['State']);
      }
    }
-// echo '<pre>';
-// print_r($_POST);
+echo '<pre>';
+print_r($_POST);
    if (!empty($_POST)) {
     $loc = $_POST['location'];
     $cit = $_POST['city'];
@@ -72,10 +72,12 @@
       
        array_push($pois, $poi);
      }
+     
    }
-   print_r($poi);
+
   }
    
+   print_r($pois);
    mysqli_close($link);
    // print_r($citys);
    // print_r($states);
