@@ -17,17 +17,17 @@ $location = $_POST['locationName'];
 $city = $_POST['city'];
 $state = $_POST['state'];
 $zipcode = $_POST['zipCode'];
-echo $location;
-echo $city;
-echo $state;
-echo $zipcode;
+// echo $location;
+// echo $city;
+// echo $state;
+// echo $zipcode;
 
 $sql = "INSERT INTO POI VALUES ('$location', '0', null, '$zipcode', '$city', '$state')";
 
-echo $location;
-echo $city;
-echo $state;
-echo $zipcode;
+// echo $location;
+// echo $city;
+// echo $state;
+// echo $zipcode;
 
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');

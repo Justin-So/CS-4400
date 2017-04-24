@@ -9,7 +9,7 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$sql = 'select DISTINCT CITY from CITYSTATE';
+$sql = 'select DISTINCT CITY from CITYSTATE ORDER BY CITY';
 $city = array();
 if($result = mysqli_query($link, $sql)) {
   while ($row = mysqli_fetch_array($result)) 
@@ -20,7 +20,7 @@ if($result = mysqli_query($link, $sql)) {
   }
 }
 
-$sql2 = 'select DISTINCT STATE from CITYSTATE';
+$sql2 = 'select DISTINCT STATE from CITYSTATE ORDER BY STATE';
 $state = array();
 if($result = mysqli_query($link, $sql2)) {
   while ($row = mysqli_fetch_array($result)) 
