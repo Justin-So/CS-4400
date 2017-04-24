@@ -25,7 +25,7 @@ if($result = mysqli_query($link, $sql)) {
       $dataPoint['aavg'] = $row['aavg'];
       $dataPoint['mmin'] = $row['mmin'];
       $dataPoint['mmax'] = $row['mmax'];
-      $dataPoint['mavg'] = $row['mmavg'];
+      $dataPoint['mavg'] = $row['mavg'];
       $dataPoint['count'] = $row['Data_Count'];
 
 
