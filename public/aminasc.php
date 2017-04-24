@@ -7,7 +7,9 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$sql = 'select * from POIReport';
+
+
+$sql = 'SELECT * FROM POIReport ORDER BY mmin ASC';
 $dataPoints = array();
 
 if($result = mysqli_query($link, $sql)) {
