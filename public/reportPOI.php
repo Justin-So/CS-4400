@@ -86,10 +86,28 @@ mysqli_close($link);
                      </tbody>
                   </table>
                   <div class="form-group row">
-                              <div class="col-sm-6">
+                              <div class="col-sm-2">
                                  <input type="submit" name="apply" id="apply" tabindex="4" class="form-control btn btn-primary" value="Apply Filter">
                               </div>
-                              <div class="col-sm-6">
+                              <div class="col-sm-2">
+                                 <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
+                              </div>
+                              <div class="col-sm-2">
+                                 <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
+                              </div>
+                              <div class="col-sm-2">
+                                 <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
+                              </div>
+                              <div class="col-sm-2">
+                                 <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
+                              </div>
+                              <div class="col-sm-2">
+                                 <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
+                              </div>
+                              <div class="col-sm-2">
+                                 <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
+                              </div>
+                              <div class="col-sm-2">
                                  <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
                               </div>
                            </div>
