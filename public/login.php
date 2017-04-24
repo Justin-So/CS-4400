@@ -9,7 +9,7 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$sql = 'select * from CITYSTATE';
+$sql = 'select DISTINCT City, State from CITYSTATE';
 $citys = array();
 $states = array();
 if($result = mysqli_query($link, $sql)) {
