@@ -17,6 +17,7 @@
        array_push($data_type, $row['TYPE']);
       }
    }
+   print_r($data_type);
 
    $datas = array();
 
