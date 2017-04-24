@@ -58,7 +58,7 @@
     // }
 
     $sql = "select * from POI where Location_Name = '$loc' and City = '$cit' and State = '$st' and Zip_Code = '$zip' and Flag = $flagged and Date_Flagged >= '$dateFrom' and Date_Flagged <= '$dateTo'";
-    echo $sql;
+    // echo $sql;
     if($result = mysqli_query($link, $sql)) {
      while ($row = mysqli_fetch_array($result)) 
      {
