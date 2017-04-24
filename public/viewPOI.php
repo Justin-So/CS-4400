@@ -77,9 +77,9 @@
     }if(empty($_POST['zipcode'])){
       $zip = "*";
     }if(empty($_POST['dataReadingDatetimeFrom'])){
-      $st = "*";
+      $dateFrom = "*";
     }if(empty($_POST['dataReadingDatetimeTo'])){
-      $zip = "*";
+      $dateTo = "*";
     }
 
     $sql = "select * from POI where Location_Name = '$loc' and City = '$cit' and State = '$st' and Zip_Code = '$zip' and Flag = $flagged and Date_Flagged >= '$dateFrom' and Date_Flagged <= '$dateTo'";
