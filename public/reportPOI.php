@@ -81,11 +81,7 @@ mysqli_close($link);
                               <td><?php echo $dp['aavg']; ?></td>
                               <td><?php echo $dp['amax']; ?></td>
                               <td><?php echo $dp['count']; ?></td>
-                              if($dp['flagged'] == 1) {
-                                 <td><?php echo 'yes'; ?></td>
-                              } else {
-                                 <td><?php echo 'no'; ?></td>
-                              }
+                              <td><?php echo $dp['flagged']; ?></td>
                            </tr>
                            <?php } ?>
                         <<!-- tr>
