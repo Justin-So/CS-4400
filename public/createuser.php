@@ -24,39 +24,39 @@ $title = $_POST['Title'];
 
 
 if($password == $confirmpassword){
-	if($usertype == "City Scientist"){
-		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'City_Scientist')";
-	}
+    if($usertype == "City Scientist"){
+        $sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'City_Scientist')";
+    }
 
-	if($usertype == "City Official"){
-		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'CITY_OFFICIAL')";
-	 	$sql2 = "INSERT INTO CITY_OFFICIAL VALUES ('$username', '$title', null, '$city', '$state')";
-	}
+    if($usertype == "City Official"){
+        $sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'CITY_OFFICIAL')";
+         $sql2 = "INSERT INTO CITY_OFFICIAL VALUES ('$username', '$title', null, '$city', '$state')";
+    }
 
-	if(mysqli_query($link, $sql)){
-	$host  = $_SERVER['HTTP_HOST'];
-	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-	$admin = 'adminFunction.php';
-	$official = 'cityOfficialFunction.php';
-	$scientist = 'newDataPoint.php';
+    if(mysqli_query($link, $sql)){
+    	if(isset($sql2)) {
+    		mysqli_query($link, $sql2);
+    	}
+        $host  = $_SERVER['HTTP_HOST'];
+        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $admin = 'adminFunction.php';
+        $official = 'cityOfficialFunction.php';
+        $scientist = 'newDataPoint.php';
 
-	if($usertype == "Admin") {
-		header("Location: http://$host$uri/$admin");
-	} else if($usertype == "City Official"){
-		header("Location: http://$host$uri/$official");
-	} else if($usertype == "City Scientist"){
-	header("Location: http://$host$uri/$scientist");
-	}
-	} else{
-	    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-	    die();
-	}
-	
-
-
-	
-} else {
-	echo "Password do not match";
+        if($usertype == "Admin") {
+                header("Location: http://$host$uri/$admin");
+            } else if($usertype == "City Official"){
+                header("Location: http://$host$uri/$official");
+            } else if($usertype == "City Scientist"){
+            header("Location: http://$host$uri/$scientist");
+            }
+            } else{
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                die();
+            }
+        
+    } else {
+        echo "Password do not match";
 }
 
 
