@@ -25,6 +25,9 @@ echo "string"; $timeDate;
 echo $type;
 echo $value;
 
+echo $sql;
+die();
+
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $scientist = 'newDataPoint.php';
