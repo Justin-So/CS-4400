@@ -84,7 +84,7 @@
                               </div>
                            </div>
                            <div class="form-group row">
-                              <label class="col-2 col-form-label">Date flagged</label>
+                              <label class="col-2 col-form-label">Date and Time</label>
                               <div class="col-10">
                                  <input type="date" name="dataReadingDatetimeFrom">
                                  to

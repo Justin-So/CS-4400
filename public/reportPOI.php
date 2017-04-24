@@ -73,6 +73,13 @@ mysqli_close($link);
                               <td><?php echo $dp['location']; ?></td>
                               <td><?php echo $dp['city']; ?></td>
                               <td><?php echo $dp['state']; ?></td>
+                              <td><?php echo $dp['mmin']; ?></td>
+                              <td><?php echo $dp['mavg']; ?></td>
+                              <td><?php echo $dp['mmax']; ?></td>
+                              <td><?php echo $dp['amin']; ?></td>
+                              <td><?php echo $dp['aavg']; ?></td>
+                              <td><?php echo $dp['amax']; ?></td>
+                              <td><?php echo $dp['count']; ?></td>                 
                               <td><?php echo $dp['flagged']; ?></td>
                            </tr>
                            <?php } ?>
