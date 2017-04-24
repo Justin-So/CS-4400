@@ -28,10 +28,6 @@ if($password == $confirmpassword){
 		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'City_Scientist')";
 	}
 
-	if($usertype == "Admin"){
-		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'Admin')";
-	}
-
 	if($usertype == "City Official"){
 		$sql = "INSERT INTO USER VALUES ('$email', '$username', '$password', 'CITY_OFFICIAL')";
 	 	$sql2 = "INSERT INTO CITY_OFFICIAL VALUES ('$username', '$title', null, '$city', '$state')";
@@ -42,9 +38,9 @@ if($password == $confirmpassword){
 
 
 	if(mysqli_query($link, $sql)){
-		if (isset($sql2)) {
-		mysqli_query($link, $sql2);
-		}
+		// if (isset($sql2)) {
+		// 	mysqli_query($link, $sql2);
+		// }
 	} else{
 	    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 	}
