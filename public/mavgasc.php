@@ -9,7 +9,7 @@ if($link === false){
 
 
 
-$sql = 'SELECT * FROM POIReport ORDER BY amin ASC';
+$sql = 'SELECT * FROM POIReport ORDER BY mavg ASC';
 $dataPoints = array();
 
 if($result = mysqli_query($link, $sql)) {

@@ -9,7 +9,7 @@ if($link === false){
 
 
 
-$sql = 'SELECT * FROM POIReport ORDER BY amin ASC';
+$sql = 'SELECT * FROM POIReport ORDER BY Flag DESC';
 $dataPoints = array();
 
 if($result = mysqli_query($link, $sql)) {
@@ -27,7 +27,6 @@ if($result = mysqli_query($link, $sql)) {
       $dataPoint['mmax'] = $row['mmax'];
       $dataPoint['mavg'] = $row['mmavg'];
       $dataPoint['count'] = $row['Data_Count'];
-
 
 
       array_push($dataPoints, $dataPoint);
