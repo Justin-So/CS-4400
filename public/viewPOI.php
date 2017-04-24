@@ -34,7 +34,7 @@
        array_push($states, $row['State']);
      }
    }
-echo '<pre>';
+// echo '<pre>';
 // print_r($_POST);
    if (!empty($_POST)) {
     $loc = $_POST['location'];
@@ -69,9 +69,6 @@ echo '<pre>';
       $poi['zip'] = $row['Zip_Code'];
       $poi['flag'] = $row['Flag'];
       $poi['dateFlagged'] = $row['Date_Flagged'];
-
-      print_r($row);
-      print_r($poi);
       
        array_push($pois, $poi);
      }
@@ -80,7 +77,6 @@ echo '<pre>';
 
   }
    
-   print_r($pois);
    mysqli_close($link);
    // print_r($citys);
    // print_r($states);
