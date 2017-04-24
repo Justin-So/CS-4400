@@ -70,7 +70,6 @@ mysqli_close($link);
                      <tbody>
                            <?php foreach($dataPoints as $dp) { ?>
                            <tr>
-                              
                               <td><?php echo $dp['location']; ?></td>
                               <td><?php echo $dp['city']; ?></td>
                               <td><?php echo $dp['state']; ?></td>
@@ -84,21 +83,16 @@ mysqli_close($link);
                               <td><?php echo $dp['flagged']; ?></td>
                            </tr>
                            <?php } ?>
-                        <<!-- tr>
-                           <td>GT</td>
-                           <td>Atlanta</td>
-                           <td>Georgia</td>
-                           <td>2</td>
-                           <td>43.1</td>
-                           <td>160</td>
-                           <td>3</td>
-                           <td>33.4</td>
-                           <td>84</td>
-                           <td>52</td>
-                           <td>No</td>
-                        </tr> -->
                      </tbody>
                   </table>
+                  <div class="form-group row">
+                              <div class="col-sm-6">
+                                 <input type="submit" name="apply" id="apply" tabindex="4" class="form-control btn btn-primary" value="Apply Filter">
+                              </div>
+                              <div class="col-sm-6">
+                                 <input type="submit" name="reset" id="filter" tabindex="4" class="form-control btn btn-primary" value="Reset Filter">
+                              </div>
+                           </div>
                </div>
             </div>
          </div>
