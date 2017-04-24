@@ -73,6 +73,7 @@
        array_push($pois, $poi);
      }
    }
+   print_r($poi);
   }
    
    mysqli_close($link);
