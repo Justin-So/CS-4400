@@ -30,6 +30,8 @@ $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $scientist = 'newDataPoint.php';
 if(mysqli_query($link, $sql)){
 	    header("Location: http://$host$uri/$scientist");
+	} else {
+		echo "Unsucessful";
 	}
 
 
