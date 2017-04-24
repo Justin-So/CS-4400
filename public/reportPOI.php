@@ -86,32 +86,23 @@ mysqli_close($link);
                      </tbody>
                   </table>
                   <title>Filter By:</title>
-                  <div class="form-group row">
-                              <div class="col-sm-4">
-                                 <input type="submit" name="moldmin" id="moldmin" tabindex="4" class="form-control btn btn-primary" value="Mold Min">
-                              </div>
-                              <div class="col-sm-4">
-                                 <input type="submit" name="moldavg" id="moldavg" tabindex="4" class="form-control btn btn-primary" value="Mold Avg">
-                              </div>
-                              <div class="col-sm-4">
-                                 <input type="submit" name="moldmax" id="moldmax" tabindex="4" class="form-control btn btn-primary" value="Reset Mold Max">
-                              </div>
-                              <div class="col-sm-4">
-                                 <input type="submit" name="amin" id="amin" tabindex="4" class="form-control btn btn-primary" value="AQ Min">
-                              </div>
-                              <div class="col-sm-4">
-                                 <input type="submit" name="aavg" id="aavg" tabindex="4" class="form-control btn btn-primary" value="AQ Avg">
-                              </div>
-                              <div class="col-sm-4">
-                                 <input type="submit" name="amax" id="amax" tabindex="4" class="form-control btn btn-primary" value="AQ Max">
-                              </div>
-                              <div class="col-sm-4">
-                                 <input type="submit" name="dp" id="dp" tabindex="4" class="form-control btn btn-primary" value="# of DataPoints">
-                              </div>
-                              <div class="col-sm-4">
-                                 <input type="submit" name="flag" id="flag" tabindex="4" class="form-control btn btn-primary" value="Flagged?">
-                              </div>
-                           </div>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Air Min ASC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Air Min DESC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Air Avg ASC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Air Avg DESC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Air Max ASC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Air Max DESC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Mold Min ASC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Mold Min DESC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Mold Avg ASC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Mold AVG Desc</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Mold Max ASC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Mold Max DESC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Flag ASC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Flag Desc</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Data Count ASC</a>
+                  <a class="form-control btn btn-primary" href="reportPOI.php">Data Count DESC</a>
+
                </div>
             </div>
          </div>
