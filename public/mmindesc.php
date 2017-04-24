@@ -25,7 +25,7 @@ if($result = mysqli_query($link, $sql)) {
       $dataPoint['aavg'] = $row['aavg'];
       $dataPoint['mmin'] = $row['mmin'];
       $dataPoint['mmax'] = $row['mmax'];
-      $dataPoint['mavg'] = $row['mmavg'];
+      $dataPoint['mmavg'] = $row['mmavg'];
       $dataPoint['count'] = $row['Data_Count'];
 
 
@@ -76,7 +76,7 @@ mysqli_close($link);
                               <td><?php echo $dp['city']; ?></td>
                               <td><?php echo $dp['state']; ?></td>
                               <td><?php echo $dp['mmin']; ?></td>
-                              <td><?php echo $dp['mavg']; ?></td>
+                              <td><?php echo $dp['mmavg']; ?></td>
                               <td><?php echo $dp['mmax']; ?></td>
                               <td><?php echo $dp['amin']; ?></td>
                               <td><?php echo $dp['aavg']; ?></td>
