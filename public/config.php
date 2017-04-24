@@ -10,6 +10,6 @@ $prod = array(
 	'dbpass' => 'e_zTUL5w',
 );
 
-$config = $prod;
+$config = $dev;
 
 ?>

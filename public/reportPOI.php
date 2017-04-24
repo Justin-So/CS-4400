@@ -7,7 +7,7 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$sql = 'select * from POI';
+$sql = 'select * from POIReport';
 $dataPoints = array();
 
 if($result = mysqli_query($link, $sql)) {
@@ -18,16 +18,19 @@ if($result = mysqli_query($link, $sql)) {
       $dataPoint['flagged'] = $row['Flag'];
       $dataPoint['city'] = $row['City'];
       $dataPoint['state'] = $row['State'];
+      $dataPoint['amin'] = $row['amin'];
+      $dataPoint['amax'] = $row['amax'];
+      $dataPoint['aavg'] = $row['aavg'];
+      $dataPoint['mmin'] = $row['mmin'];
+      $dataPoint['mmax'] = $row['mmax'];
+      $dataPoint['mavg'] = $row['mmavg'];
+      $dataPoint['count'] = $row['COUNT(*)'];
 
       array_push($dataPoints, $dataPoint);
    }
 }
 
 print_r($dataPoints);
-// print_r($location);
-// print_r($type);
-// print_r($value);
-// print_r($timeDate);
 
 mysqli_close($link);
 // print_r($citys);
@@ -64,7 +67,16 @@ mysqli_close($link);
                         <th>Flagged?</th>
                      </thead>
                      <tbody>
-                        <tr>
+                           <?php foreach($dataPoints as $dp) { ?>
+                           <tr>
+                              
+                              <td><?php echo $dp['location']; ?></td>
+                              <td><?php echo $dp['city']; ?></td>
+                              <td><?php echo $dp['state']; ?></td>
+                              <td><?php echo $dp['flagged']; ?></td>
+                           </tr>
+                           <?php } ?>
+                        <<!-- tr>
                            <td>GT</td>
                            <td>Atlanta</td>
                            <td>Georgia</td>
@@ -76,7 +88,7 @@ mysqli_close($link);
                            <td>84</td>
                            <td>52</td>
                            <td>No</td>
-                        </tr>
+                        </tr> -->
                      </tbody>
                   </table>
                </div>
