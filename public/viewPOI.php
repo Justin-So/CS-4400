@@ -35,7 +35,7 @@
      }
    }
 echo '<pre>';
-print_r($_POST);
+// print_r($_POST);
    if (!empty($_POST)) {
     $loc = $_POST['location'];
     $cit = $_POST['city'];
@@ -69,10 +69,12 @@ print_r($_POST);
       $poi['zip'] = $row['Zip_Code'];
       $poi['flag'] = $row['Flag'];
       $poi['dateFlagged'] = $row['Date_Flagged'];
+      print_r($row);
+      print_r($poi);
       
        array_push($pois, $poi);
      }
-     
+
    }
 
   }
