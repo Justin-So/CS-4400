@@ -26,11 +26,12 @@ if($result = mysqli_query($link, $sql)) {
       $dataPoint['mavg'] = $row['mmavg'];
       $dataPoint['count'] = $row['COUNT(*)'];
 
+
       array_push($dataPoints, $dataPoint);
    }
 }
 
-print_r($dataPoints);
+// print_r($dataPoints);
 
 mysqli_close($link);
 // print_r($citys);
@@ -79,8 +80,12 @@ mysqli_close($link);
                               <td><?php echo $dp['amin']; ?></td>
                               <td><?php echo $dp['aavg']; ?></td>
                               <td><?php echo $dp['amax']; ?></td>
-                              <td><?php echo $dp['count']; ?></td>                 
-                              <td><?php echo $dp['flagged']; ?></td>
+                              <td><?php echo $dp['count']; ?></td>
+                              if($dp['flagged'] == 1) {
+                                 <td><?php echo 'yes'; ?></td>
+                              } else {
+                                 <td><?php echo 'no'; ?></td>
+                              }
                            </tr>
                            <?php } ?>
                         <<!-- tr>
